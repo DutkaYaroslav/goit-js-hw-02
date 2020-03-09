@@ -1,12 +1,10 @@
 const checkForSpam = function (message) {
 
-    // const spamToFind = ['SPAM', 'sale'];
 
-    // rigster = t
+    let register = message.toLowerCase();
 
-    message.toLowerCase()
-
-    let isSpamIncluded = message.includes('SPAM') || message.includes('sale');
+    let isSpamIncluded = register.includes('spam') || register.includes('sale');
+    console.log(register)
 
     return isSpamIncluded;
 
