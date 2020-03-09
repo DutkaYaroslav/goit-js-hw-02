@@ -1,5 +1,6 @@
 const logins = ['Mango', 'robotGoogles', 'Poly', 'Aj4x1sBozz', 'qwerty123'];
 const input = prompt('create new password');
+let allClients = logins.concat(input);
 
 if (input === null) {
     alert('canceled')
@@ -8,21 +9,21 @@ if (input === null) {
 // 1. написати на валідність не менше 4 чи не більше 16 символів. повернення тру або фолс.
 
 const isLoginValid = function (input) {
-    if (input.length >= 4 && input.length <= 16) {
-        return true;
-    } else {
-        return false;
-
-    }
+    return input.length >= 4 && input.length <= 16
 };
-
-
 
 // написати скрипт прийому паролю, щоб не співпадав з масивом логінз. якщо співпадає, то тру. Якщо не співпадає - false.
 //- розбити масив з допомогю спліт
 // -зрівняти логін з розбитим масивом
-const isLoginUnique = function (input) {
+const isLoginUnique = function (input, allClients) {
 
+    // let array = logins.split(' ');
+
+    // if (logins.includes(array) === input) {
+    //     return false
+    // } else {
+    //     return true
+    // }
     for (const login of logins) {
         if (login === input) {
             return false
@@ -33,10 +34,10 @@ const isLoginUnique = function (input) {
 
 };
 
-const addLogin = function (final) {
-    if (isLoginValid(input) === false) {
+const addLogin = function (final, allClients) {
+    if (isLoginValid(input) !== true) {
         alert('логін має бути від 4 до 16 символів включно')
-    } else if (isLoginUnique(input) === false) {
+    } else if (isLoginUnique(input) !== true) {
         alert('Такий логін вже інсує')
 
     } else {
